@@ -1,0 +1,42 @@
+%! Licence = CC BY-NC-SA 4.0
+
+%! Author = mariuszindel
+%! Date = 22. Feb 2021
+%! Project = Latex-documentation-template
+
+
+\begin{titlepage}
+
+
+   \vspace*{\fill}
+
+   \newcommand{\HRule}{\color{black}\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+   \center
+
+   \includegraphics[scale=1]{./img/OST_Logo}
+
+   \vspace{0.5cm}
+
+   \textsc{\huge \SUBJECT}\\[1cm]
+
+   {\HRule} \\[0.7cm]
+   { \Huge \bfseries \textcolor{OSTPink}{\TITLE}}\\[0.4cm]
+   {\HRule} \\[1.1cm]
+
+   \Large \AUTHOR
+
+   \Large \today
+
+
+   \vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+
+% don't show \subsubsection in \tableofcontents
+\setcounter{tocdepth}{2}
+
+%Table of contents
+\tableofcontents
+
