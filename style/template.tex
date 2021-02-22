@@ -5,7 +5,7 @@
 %! Project = latex-documentation-template
 
 
-\documentclass[a4paper, 10pt]{scrartcl}
+\documentclass[a4paper, oneside, 10pt]{scrartcl}
 
 % charset
 \usepackage[T1]{fontenc}
@@ -16,11 +16,12 @@
 
 % format page size
 \usepackage{geometry}
-\geometry{top=1.2cm,left=0.4cm,right=0.4cm}
-\textheight = 558pt
+\geometry{top=2.54cm,left=2.54cm,right=2.54cm}
 
 % tabular
 \usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{colortbl}
 
 % math
 \usepackage{amsmath}
@@ -38,8 +39,21 @@
 % multi columns
 \usepackage{multicol}
 
+% Enable clickable table of contents
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+% enable BibTex
+%\usepackage[block=ragged]{biblatex}
+%\bibliographystyle{ieeetr} %TODO: If uncomment -> exit code 1
+
 % make items compact
-\setlist{topsep=0pt, leftmargin=3mm, nolistsep}
+\setlist{topsep=0pt, leftmargin=4mm, nolistsep}
 \setlength{\parindent}{0cm}
 
 % author and institute
@@ -49,45 +63,36 @@
 % define header and footer
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\setkomafont{pagehead}{\normalfont}
+\setkomafont{pagefoot}{\normalfont}
 
-\fancyhead[RO]{\AUTHOR| \INSTITUTE}
-\fancyhead[LO]{\TITLE}
-\fancyfoot[RO]{\DELIVERYDATE}
-\fancyfoot[LO]{Created with \LaTeX}
-\renewcommand\headrulewidth{0pt}
-\renewcommand\footrulewidth{0pt}
-\headsep = -2pt
-\footskip = 0pt
+\fancyhead[LO]{\nouppercase \leftmark}
+\fancyhead[RO]{\AUTHOR}
+\fancyfoot[CO]{Seite \thepage}
+\renewcommand\headrulewidth{0.5pt}
+\renewcommand\footrulewidth{0.5pt}
+%\headsep = -2pt
+%\footskip = 0pt
 
 % define color
-\definecolor{sectionColor}{HTML}{052639}
-\definecolor{subSectionColor}{HTML}{468189}
-\definecolor{subSubSectionColor}{HTML}{8DB9B1}
+\definecolor{sectionColor}{HTML}{000000}
+\definecolor{subSectionColor}{HTML}{000000}
+\definecolor{subSubSectionColor}{HTML}{000000}
 \definecolor{codeBackground}{RGB}{245,245,245}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{darkGreen}{RGB}{0,150,0}
+\definecolor{OSTPink}{RGB}{140,25,95}
 \definecolor{DarkPurple}{rgb}{0.4, 0.1, 0.4}
 
 % define section format
-\usepackage{sectsty}
-\usepackage{titlesec}
+%define section color and size
+\addtokomafont{section}{\color{sectionColor}}
+\addtokomafont{subsection}{\color{subSectionColor}}
+\addtokomafont{subsubsection}{\small \color{subSubSectionColor}}
 
-\titleformat{name=\section}[block]{\sffamily\small}{}{0pt}{\colorsection}
-\titlespacing*{\section}{0pt}{0pt}{0pt}
-\newcommand{\colorsection}[1]{%
-    \colorbox{sectionColor!80}{\parbox{0.98\linewidth}{\vspace{-1pt}\color{white}\ #1 \vspace{-2pt}}}}
-
-% define subsection format
-\titleformat{name=\subsection}[block]{\sffamily\small}{}{0pt}{\colorsubsection}
-\titlespacing*{\subsection}{0pt}{0pt}{0pt}
-\newcommand{\colorsubsection}[1]{%
-    \colorbox{subSectionColor!80}{\parbox{0.98\linewidth}{\vspace{-1pt}\color{black}\ #1 \vspace{-2pt}}}}
-
-% define subsubsection format
-\titleformat{name=\subsubsection}[block]{\sffamily\small}{}{0pt}{\colorsubsubsection}
-\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
-\newcommand{\colorsubsubsection}[1]{%
-    \colorbox{subSubSectionColor!60}{\parbox{0.98\linewidth}{\vspace{-1pt}\color{black}\ #1 \vspace{-2pt}}}}
+% new section -> new page
+\let\stdsection\section
+\renewcommand\section{\clearpage\stdsection}
 
 % import code listings
 \usepackage{listings}
@@ -118,3 +123,12 @@
 
 % include lorem ipsum
 \usepackage{lipsum}
+
+% degree symbol
+\usepackage{textcomp}
+
+% insert PDF's
+\usepackage{pdfpages}
+
+% globaly small URL
+\renewcommand{\UrlFont}{\ttfamily\small}

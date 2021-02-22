@@ -14,22 +14,29 @@
 \subsubsection{Subsubsection}
 \lipsum
 
+
+\newpage
+
 \subsubsection{graphic}
-\begin{center}
-    \includegraphics[width=\linewidth]{./img/OST_Logo.png}
-\end{center}
-\vspace{-8pt}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{img/OST_Logo}
+    \caption{The OST Logo!}
+\end{figure}
 
 \subsubsection{table}
-    \begin{center}
-    \begin{tabular}{l | c | r}
-        \hline
-        left align & center align & right align\\ \hline
-        \hline
-        hello & world & !\\ \hline
-        hello & world & !\\ \hline
-    \end{tabular}
-    \end{center}
+\begin{table}[h]
+    \centering
+    \caption{example tabular}
+    \label{tab:example tabular}
+        \begin{tabular}{l | c | r}
+            \hline
+            left align & center align & right align\\ \hline
+            \hline
+            hello & world & !\\ \hline
+            hello & world & !\\ \hline
+        \end{tabular}
+\end{table}
 
 \subsubsection{items}
 \begin{itemize}
@@ -46,14 +53,14 @@
 \end{enumerate}
 
 \subsubsection{listings}
-\begin{lstlisting}
+\begin{lstlisting}[caption=example listing]
 //simple listing in default language
     for (int i = 0; i < 10; i++) {
     System.out.printline(i + "hello world!");
     }
 \end{lstlisting}
 
-\begin{lstlisting}[style=JavaScript]
+\begin{lstlisting}[firstnumber=17, caption=example listing, style=JavaScript]
 // example listing in JS
     var = hello world
 \end{lstlisting}
@@ -62,7 +69,7 @@
 \subsubsection{minipage}
 \begin{minipage}{0.5\linewidth}
     \begin{center}
-        \includegraphics[width=\linewidth]{example-image}
+        \includegraphics[width=0.5\linewidth]{example-image}
         \vspace{-8pt}
     \end{center}
 \end{minipage}

@@ -6,19 +6,25 @@
 
 
 %import template
-\input{./style/template.tex}
+\input{style/template.tex}
 
 
-\newcommand{\TITLE}{Test Cheat Sheet}
+
+\newcommand{\SUBJECT}{Subject}
+\newcommand{\TITLE}{\LaTeX \space documentation template}
+
 \newcommand{\DELIVERYDATE}{22.02.2021}
 
 \begin{document}
 
+%import cover and tableofcontents
+    \input{style/cover.tex}
 
-%import tableofcontents
-% \input{./tableofcontents.tex}
+%import content
+	\input{content/source-template.tex}
 
-		\input{content/source-template.tex}
+%import appendix
+    \input{style/appendix.tex}
 
 
 \end{document}
