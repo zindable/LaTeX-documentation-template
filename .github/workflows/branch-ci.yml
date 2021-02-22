@@ -1,7 +1,7 @@
 name: Build LaTeX document
 on: 
   push:
-   branches-ignore: [ main ]
+ 
     
 jobs:
     Build-LaTeX-Doc:
