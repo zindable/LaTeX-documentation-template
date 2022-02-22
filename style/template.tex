@@ -5,11 +5,16 @@
 %! Project = latex-documentation-template
 
 
-\documentclass[a4paper, oneside, 10pt]{scrartcl}
+\documentclass[a4paper, oneside, 10pt]{scrreprt}
 
 % charset
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[Sonny]{fncychap}
+\ChNameVar{\Large\fontfamily{\sfdefault}\bfseries}
+\ChNumVar{\Huge\fontfamily{\sfdefault}\bfseries}
+\ChTitleVar{\Large\fontfamily{\sfdefault}\bfseries}
 
 % use language german
 \usepackage[ngerman]{babel}
@@ -32,6 +37,7 @@
 % graphic
 \usepackage{graphicx}
 \graphicspath{{img/}}
+\usepackage{caption}
 
 % colors
 \usepackage[dvipsnames]{xcolor}
@@ -48,17 +54,13 @@
     urlcolor={blue!80!black}
 }
 
-% enable BibTex
-%\usepackage[block=ragged]{biblatex}
-%\bibliographystyle{ieeetr} %TODO: If uncomment -> exit code 1
-
 % make items compact
-\setlist{topsep=0pt, leftmargin=4mm, nolistsep}
-\setlength{\parindent}{0cm}
+%\setlist{topsep=0pt, leftmargin=4mm, nolistsep}
+%\setlength{\parindent}{0cm}
 
 % author and institute
 \newcommand{\AUTHOR}{Marius Zindel }
-\newcommand{\INSTITUTE}{Hochschule für Technik Rapperswil}
+\newcommand{\INSTITUTE}{Hochschule für Technik}
 
 % define header and footer
 \usepackage{fancyhdr}
@@ -68,7 +70,7 @@
 
 \fancyhead[LO]{\nouppercase \leftmark}
 \fancyhead[RO]{\AUTHOR}
-\fancyfoot[CO]{Seite \thepage}
+\fancyfoot[CO]{\thepage}
 \renewcommand\headrulewidth{0.5pt}
 \renewcommand\footrulewidth{0.5pt}
 %\headsep = -2pt
@@ -88,11 +90,25 @@
 %define section color and size
 \addtokomafont{section}{\color{sectionColor}}
 \addtokomafont{subsection}{\color{subSectionColor}}
-\addtokomafont{subsubsection}{\small \color{subSubSectionColor}}
+\addtokomafont{subsubsection}{ \color{subSubSectionColor}}
+\addtokomafont{paragraph}{\small \color{subSubSectionColor}}
+\addtokomafont{subparagraph}{\small \bfseries \itshape \color{subSubSectionColor}}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+{-3.25ex\@plus -1ex \@minus -.2ex}%
+{1.5ex \@plus .2ex}%
+{\normalfont\normalsize\itshape\bfseries}}
+
+\renewcommand\subparagraph{\@startsection{subparagraph}{4}{\z@}%
+{-3.25ex\@plus -1ex \@minus -.2ex}%
+{1.5ex \@plus .2ex}%
+{\normalfont\normalsize\bfseries\itshape\color{black}}}
+\makeatother
 
 % new section -> new page
-\let\stdsection\section
-\renewcommand\section{\clearpage\stdsection}
+\let\stdchapter\chapter
+\renewcommand\chapter{\clearpage\stdchapter}
 
 % import code listings
 \usepackage{listings}
@@ -100,13 +116,13 @@
 \input{./style/listings.tex}
 \lstset{style=java}
 \lstset{
- literate=  % Allow for German characters in lstlistings.
- {Ö}{{\"O}}1
- {Ä}{{\"A}}1
- {Ü}{{\"U}}1
- {ü}{{\"u}}1
- {ä}{{\"a}}1
- {ö}{{\"o}}1
+    literate=  % Allow for German characters in lstlistings.
+        {Ö}{{\"O}}1
+        {Ä}{{\"A}}1
+        {Ü}{{\"U}}1
+        {ü}{{\"u}}1
+        {ä}{{\"a}}1
+        {ö}{{\"o}}1
 }
 
 % dotted rule
@@ -130,5 +146,11 @@
 % insert PDF's
 \usepackage{pdfpages}
 
+% change layout to landscape for one page
+\usepackage{pdflscape}
+
 % globaly small URL
 \renewcommand{\UrlFont}{\ttfamily\small}
+
+% Center p element in table
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
