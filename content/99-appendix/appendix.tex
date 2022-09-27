@@ -1,30 +1,30 @@
-%! Licence = CC BY-NC-SA 4.0
 
-%! Author = mariuszindel
-%! Date = 22. Feb 2022
-%! Project = latex-documentation-template
+\part{Appendix}
 
-\chapter{Verzeichnisse}
+\chapter{Listings}
 
 % List of figures
 \listoffigures
-% \addcontentsline{toc}{section}{List of Figures}
-% \addcontentsline{toc}{section}{\arabic{chapter}.\arabic{section}~~ line added to TOC: subsubsection one}
 \addtocounter{section}{1}
-\addcontentsline{toc}{section}{\protect\numberline{\thesection}Abbildungsverzeichnis}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}List of figures}
 
 % List of tables
 \listoftables
 \addtocounter{section}{1}
-\addcontentsline{toc}{section}{\protect\numberline{\thesection}Tabellenverzeichnis}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}List of tables}
+
+% List of codelistings
+\lstlistoflistings
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}Listings}
 
 % List of bibliography
-\bibliographystyle{IEEEtran} % We choose the "plain" reference style
-\bibliography{bibliography.bib} % Entries are in the "refs.bib" file
-\addtocounter{section}{1}
-\addcontentsline{toc}{section}{\protect\numberline{\thesection}Literaturverzeichnis}
+\printbibliography
+\addtocounter{chapter}{1}
+\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}Bibliography}
 
+% Glossary
+\printglossary
 
-\chapter{Anhang}
 \newpage
-\lipsum[1]
+\printglossary[type=\acronymtype, title=List of abbreviations]

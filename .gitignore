@@ -11,6 +11,7 @@
 *.cb
 *.cb2
 .*.lb
+*.ist
 
 ## Intermediate documents:
 *.dvi
@@ -277,3 +278,7 @@ TSWLatexianTemp*
 
 # exclude idea folder
 .idea
+
+# remove temp files
+.DS_Store
+.vscode

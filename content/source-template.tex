@@ -1,8 +1,4 @@
-%! Licence = CC BY-NC-SA 4.0
-
-%! Author = mariuszindel
-%! Date = 22. Feb 2021
-%! Project = latex-documentation-template
+\part{My First Part}
 
 \chapter{My First Chapter}
 
@@ -14,19 +10,19 @@
 
 
 \subsubsection{Subsubsection}
-\lipsum[1]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
 
 \subsubsection{graphic}
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{img/OST_Icon}
     \caption{The OST Logo!}
 \end{figure}
 
 \subsubsection{table}
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{example tabular}
     \label{tab:example tabular}
@@ -46,7 +42,7 @@
     \item !
 \end{itemize}
 
-\subsubsection{enumaeration}
+\subsubsection{enumeration}
 \begin{enumerate}
     \item hello
     \item world
@@ -54,11 +50,11 @@
 \end{enumerate}
 
 \subsubsection{listings}
-\begin{lstlisting}[caption=example listing]
-//simple listing in default language
-    for (int i = 0; i < 10; i++) {
-    System.out.printline(i + "hello world!");
-    }
+\begin{lstlisting}[caption=example listing, style=bash]
+# simple listing in default language
+echo "Hello World"
+
+cat /etc/resolv.conf
 \end{lstlisting}
 
 \begin{lstlisting}[firstnumber=17, caption=example listing, style=JavaScript]
@@ -80,4 +76,9 @@
 \end{minipage}
 
 \subsubsection{cite}
-Hello World!\cite{latex2e}
+Hello World!\cite{martinez-github}
+
+\subsubsection{Glossary}
+You can use short form \acrshort{gh} or long form \acrlong{gh} or full form \acrfull{gh}, all forms can also be used in plural \acrlongpl{gh}.
+You can also use Glossary by itself, however it is better to use acronyms with glossary \Gls{github}.
+All references can be clicked and will be redirected to glossary.
