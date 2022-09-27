@@ -1,10 +1,3 @@
-%! Licence = CC BY-NC-SA 4.0
-
-%! Author = mariuszindel
-%! Date = 22. Feb 2021
-%! Project = latex-documentation-template
-
-
 \lstdefinestyle{Java}{
     language=java,
     backgroundcolor = \color{codeBackground},       %color for the background
@@ -182,7 +175,7 @@
     showspaces=false,                               % emphasize spaces in code (true/false)
     showstringspaces=false,
     showtabs=false,                                 % emphasize tabulators in code (true/false)
-    numbers=left,                                   % position of line numbers (left/right/none)
+    numbers=none,                                   % position of line numbers (left/right/none)
     numberstyle=\tiny\color{darkgray}\ttfamily,     % style used for line-numbers
     stepnumber=1,                                   % distance of line-numbers from the code
     tabsize=1,                                      % default tabsize
@@ -210,6 +203,35 @@
     showstringspaces=false,
     showtabs=false,                                 % emphasize tabulators in code (true/false)
     numbers=left,                                   % position of line numbers (left/right/none)
+    numberstyle=\tiny\color{darkgray}\ttfamily,     % style used for line-numbers
+    stepnumber=1,                                   % distance of line-numbers from the code
+    tabsize=1,                                      % default tabsize
+    breaklines=true,                                % automatic line-breaking
+    breakatwhitespace=true,                         % sets if automatic breaks should only happen at whitespaces
+    frame=single,                                   % showing frame outside code (none/leftline/topline/bottomline/lines/single/shadowbox)
+    xleftmargin=15pt,
+    xrightmargin=15pt,
+    frameround=tttt,                            % enable round corners
+    rulecolor = \color{lightgray},              % Specify the colour of the frame-box
+    aboveskip = 6pt,
+    belowskip = 15pt,
+    captionpos = b                              % position of caption (t/b)
+}
+
+
+\lstdefinestyle{cisco-config}{
+    morekeywords={no,ip,ipv6,int,interface},
+    morecomment=[l][\color{comments}]{!},
+    backgroundcolor = \color{codeBackground},       %color for the background
+    basicstyle=\ttfamily\scriptsize,                % font size/family/etc. for source
+    keywordstyle=\color{RoyalBlue}\ttfamily,        % style of keywords in source language
+    stringstyle=\color{darkGreen}\ttfamily,         % style of strings in source language
+    commentstyle=\color{DarkPurple!60}\ttfamily,    % style of comments in source language
+    escapeinside={£}{£},                            % specify characters to escape from source code to LATEX
+    showspaces=false,                               % emphasize spaces in code (true/false)
+    showstringspaces=false,
+    showtabs=false,                                 % emphasize tabulators in code (true/false)
+    numbers=none,                                   % position of line numbers (left/right/none)
     numberstyle=\tiny\color{darkgray}\ttfamily,     % style used for line-numbers
     stepnumber=1,                                   % distance of line-numbers from the code
     tabsize=1,                                      % default tabsize
